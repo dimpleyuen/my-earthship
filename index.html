@@ -22,7 +22,7 @@
   
     <div class="top-section">
 
-    <!-- TOP 1) Quiz-Title -->
+    <!-- TOP 0) Quiz-Title -->
       <div class="questions quiz-title">
         <div class="page-header">
           <!-- <p class="text-uppercase">A Eco-Friendly Test</p> -->
@@ -33,73 +33,200 @@
         <p class="text-uppercase">Take The Quiz And Find Out!</p>
       </div> <!-- end of questions[0] aka quiz-title -->
 
-    <!-- TOP 2) Question-1 -->
+    <!-- TOP 1) Question-1 -->
       <div class="questions">
         <div class="page-header">
           <h1 class="text-uppercase">Q1: Do You Have A Compost At Home?</h1>
         </div>
-      </div> <!-- end of questions[1] aka question-1 -->
+      </div> <!-- end of questions -->
 
-    <!-- TOP 3) Question-2 -->
+    <!-- TOP 2) Question-2 -->
       <div class="questions">
         <div class="page-header">
           <h1 class="text-uppercase">Q2: Power Saving Mode On Your Laptop?</h1>
         </div>
-      </div> <!-- end of questions[1] aka question-1 -->
+      </div> <!-- end of questions -->
+
+    <!-- TOP 3) Question-3 -->
+      <div class="questions">
+        <div class="page-header">
+          <h1 class="text-uppercase">Q3: Do You Receive Circular Post (aka Junk Mail)?</h1>
+        </div>
+      </div> <!-- end of question -->
+
+    <!-- TOP 4) Question-4 -->
+      <div class="questions">
+        <div class="page-header">
+          <h1 class="text-uppercase">Q4: How Often Do You Drink From A Bottle?</h1>
+        </div>
+      </div> <!-- end of question -->
 
     </div> <!-- end of top-section -->
 
     <div class="main">
       
-    <!-- MAIN 1) Start-Page -->
+    <!-- MAIN 0) Start-Page -->
         <div class="answers start-page">
           <br>
           <br>
           <div class="image-wrapper">
-          <p class="hidden" id="quote">save meee !</p>
           <img class="bounce" src="images/tree2.png" />
           </div> <!-- end of image wrapper -->
           
           <div class="row">
-          <div class="input-wrapper col-xs-12 col-sm-8">
-            <input type="text" class="form-control input-name" name="" value="" placeholder="Enter Your Name">
+          <div class="input-wrapper col-xs-12 col-sm-5 col-sm-offset-1">
+          <!-- <h2>Enter Your Name Below:</h2> -->
+            <input type="text" class="form-control input-name" name="" value="" placeholder="Name">
           </div> <!-- end of input wrapper -->
 
-          <div class="button-wrapper col-xs-12 col-sm-4">
+          <div class="button-wrapper col-xs-12 col-sm-5">
             <button class="btn btn-success start-quiz"> Start Quiz</button>
           </div> <!-- end of button -->
           </div> <!-- end of row -->
         </div> <!-- end of answers[0] aka start-page-->
       
-    <!-- MAIN 2) Answers-1 -->
-        <div class="answers">
-          <div class="answer-wrapper jumbotron" href="">
-          <h1>Wait... What?</h1>
+    <!-- MAIN 1) Answers-1 -->
+        <div class="answers row">
+          <div class="answer-wrapper col-xs-12 col-sm-4" data-score="-10">
+          <h1 class="jumbotron">Wait, What?</h1>
           </div>
-          <div class="answer-wrapper jumbotron">
-          <h1>No, But I Wish I Did...</h1>
+          <div class="answer-wrapper col-xs-12 col-sm-4" data-score="0">
+          <h1 class="jumbotron">I Want One.</h1>
           </div>
-          <div class="answer-wrapper jumbotron">
-          <h1>Hell Yeah!</h1>
+          <div class="answer-wrapper col-xs-12 col-sm-4" data-score="10">
+          <h1 class="jumbotron">Hell Yeeeah!</h1>
           </div>
-        </div> <!-- end of answers[1] aka aka answer-1-->
 
-    <!-- MAIN 3) Answers-2 -->
-        <div class="answers">
-          <div class="answer-wrapper jumbotron" href="">
-          <h1>Time Is But A Concept</h1>
+          <!-- Progress Bar -->
+          <div class="row progress-wrapper col-xs-12">
+            <h3>Progress:</h3>
+            <div class="progress">
+              <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="9" style="width: 11.5%;">
+                1/9
+              </div>
+            </div>
           </div>
-          <div class="answer-wrapper jumbotron">
-          <h1>It's Set To 2 Hours For Movie Watching</h1>
+
+        </div> <!-- end of answer -->
+
+    <!-- MAIN 2) Answers-2 -->
+        <div class="answers row">
+          <div class="answer-wrapper col-xs-12 col-sm-4" data-score="0">
+          <h1 class="jumbotron">Yup, It's Set To 2 Hours</h1>
           </div>
-          <div class="answer-wrapper jumbotron">
-          <h1>Usually Sleeps Within 15 Minutes!</h1>
+          <div class="answer-wrapper col-xs-12 col-sm-4" data-score="10">
+          <h1 class="jumbotron">Sleeps Within 15mins!</h1>
           </div>
-        </div> <!-- end of answers[1] aka aka answer-1-->
+          <div class="answer-wrapper col-xs-12 col-sm-4" data-score="-10">
+          <h1 class="jumbotron">Time Is But A Concept</h1>
+          </div>
+
+          <div class="row progress-wrapper col-xs-12">
+            <h3>Progress:</h3>
+            <div class="progress">
+              <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="9" style="width: 11.5%;">
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- end of answer -->
+
+    <!-- MAIN 3) Answers-3 -->
+        <div class="answers row">
+          <div class="answer-wrapper col-xs-12 col-sm-4" data-score="10">
+          <h1 class="jumbotron">I've Opted Out</h1>
+          </div>
+          <div class="answer-wrapper col-xs-12 col-sm-4" data-score="0">
+          <h1 class="jumbotron">I Reuse Them</h1>
+          </div>
+          <div class="answer-wrapper col-xs-12 col-sm-4" data-score="-10">
+          <h1 class="jumbotron">Straight To Trash</h1>
+          </div>
+
+          <div class="row progress-wrapper col-xs-12">
+            <h3>Progress:</h3>
+            <div class="progress">
+              <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="9" style="width: 11.5%;">
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- end of answer -->
+
+    <!-- MAIN 4) Answers-4 -->
+        <div class="answers row">
+          <div class="answer-wrapper col-xs-12 col-sm-4" data-score="-10">
+          <h1 class="jumbotron">At Least Once A Week</h1>
+          </div>
+          <div class="answer-wrapper col-xs-12 col-sm-4" data-score="0">
+          <h1 class="jumbotron">Only When I Have To</h1>
+          </div>
+          <div class="answer-wrapper col-xs-12 col-sm-4" data-score="10">
+          <h1 class="jumbotron">Gave Up Bottled Water</h1>
+          </div>
+
+          <div class="row progress-wrapper col-xs-12">
+            <h3>Progress:</h3>
+            <div class="progress">
+              <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="9" style="width: 11.5%;">
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- end of answer -->
+
+    <!-- MAIN LAST) Results Page -->
+      <div class="answers">
+        <div class="results-wrapper jumbotron">
+          <h1>Hi <span class="username"></span>!</h1>
+          <h1 class="results">Results</h1>
+          <p class="text-uppercase">In Sustainable Living.</p>
+        </div>
+
+      <!-- MAIN LAST) Tips Section -->
+        <div class="tips-wrapper row">
+          <div class="tips col-xs-12 col-md-4">
+            <div class="tips-content jumbotron">
+            <h2><span class="glyphicon glyphicon-grain" aria-hidden="true"></span>Tip 1: Composting</h2>
+            <p>To Make A Simple Compost, all you need is a bucket!</p>
+            </div>
+          </div>
+
+          <div class="tips col-xs-12 col-md-4">
+            <div class="tips-content jumbotron">
+            <h2><span class="glyphicon glyphicon-grain" aria-hidden="true"></span>Tip 2: Power Saving Mode</h2>
+            <p>Utilizing the power saving mode on your laptop not only saves energy, it also extends your battery life!</p>
+            </div>
+          </div>
+
+          <div class="tips col-xs-12 col-md-4">
+            <div class="tips-content jumbotron">
+            <h2><span class="glyphicon glyphicon-grain" aria-hidden="true"></span>Tip 3: Stop Junk Mail</h2>
+            <p>Taking 10 minutes to opt-out saves an average of 69lbs of junk mail sent to your home each year!</p>
+            </div>
+          </div>
+
+          <div class="tips col-xs-12 col-md-4">
+            <div class="tips-content jumbotron">
+            <h2><span class="glyphicon glyphicon-grain" aria-hidden="true"></span>Tip 4: Plastics Not Fantastic</h2>
+            <p>If we all gave up bottled water, we can minimize up to 154 tonnes (that's almost 7 double decker buses) of waste every day!</p>
+            </div>
+          </div>
+
+        </div>
+      </div> <!-- end of results page -->
 
     </div> <!-- end of main -->
 
   </div> <!-- end of container fluid -->
+
+
+
+
+
+
+
+
 
   <!-- jQuery -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
