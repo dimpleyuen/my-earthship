@@ -1,3 +1,7 @@
+/*fix height issues for answers while mantaining vertical alignment*/
+/*fix height issues for tips while maintaining vertial alignment*/
+/*fix positioning of back button*/
+
 html {
   margin: 0;
   padding: 0;
@@ -22,13 +26,6 @@ html, body, .container-fluid {
   text-align: center;
   border-bottom: 4px dashed white;
 }
-
-/*@media (min-width: 599px) {
-  .top-section {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-}*/
 
 .quiz-title {
   margin: 0;

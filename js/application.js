@@ -1,4 +1,6 @@
-var result = 0;
+  var result = 0;
+  var currentAnswerIndex = 0;
+  var currentAnswer;
 
 $(document).ready(function() {
 
@@ -6,8 +8,6 @@ $(document).ready(function() {
   $('.questions').hide();
 
 //Show First Answer Upon Loading
-  var currentAnswerIndex = 0;
-  var currentAnswer;
 
   function showNextAnswer() {
     $('.answers').hide(1000);
@@ -56,12 +56,11 @@ $(document).ready(function() {
     if ( result == 20 ) {
       $('.results').text("Are Master Level");
     }
-    if ( result == -10 || result == 0 || result == 10 ) {
-      $('.results').text("I Think You Can Do Better");
+    if ( result === -10 || result === 0 || result === 10 ) {
+      $('.results').text("Not Quite There");
     }
-    if ( result == -20 ) {
-      $('.results').text("C'mon, You Aren't Even Trying");
-
+    if ( result === -20 ) {
+      $('.results').text("Aren't Even Trying");
     }
   }
 
