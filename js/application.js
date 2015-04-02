@@ -1,13 +1,17 @@
-  var result = 0;
-  var currentAnswerIndex = 0;
-  var currentAnswer;
+  var result = {};
+  var finalScore = 0;
+  var tipsShown = {}; //just for checking
+
 
 $(document).ready(function() {
 
+//Hide All The Q&A's Initially
   $('.answers').hide();
   $('.questions').hide();
 
 //Show First Answer Upon Loading
+  var currentAnswerIndex = 0;
+  var currentAnswer;
 
   function showNextAnswer() {
     $('.answers').hide(1000);
@@ -27,7 +31,6 @@ $(document).ready(function() {
   }
   showNextQuestion();
 
-
 //On Button Click, Hide/Show The Next Set Of Questions/Answers
   $(document).on('click','.start-quiz, .answer-wrapper', function() {
     currentAnswerIndex += 1;
@@ -37,47 +40,65 @@ $(document).ready(function() {
     showNextQuestion();
   })
 
-
-//On Button Click, store the input field somewhere and put it in the span
+//On Button Click, Store The Name Somewhere and Put it in the Span
   $('.start-quiz').click(function() {
     var name = $('.input-name').val();
     $('.username').text(name);
   })
 
-//Accumulate Points upon clicking different answers
+//Accumulate Points Upon Clicking Answers & Show Relevant Tips On Results Page
   $(document).on('click', '.answer-wrapper', function() {
     var score = Number($(this).attr('data-score'));
-    result = result + score;
-    calcScores();
+    result["Q"+(currentQuestionIndex - 1)] = score;
   })
 
-//Add Scores
-  function calcScores() { 
-    if ( result == 20 ) {
-      $('.results').text("Are Master Level");
+//Calculate Final Score In For Last Question
+  $(document).on('click', '.last', function() {
+    calcScores(result);
+  })
+
+//Total Up The Scores in Hash & Calculate Result
+  function calcScores(obj) { 
+    for (var key in obj) {
+      var val = obj[key]
+      finalScore += val;
     }
-    if ( result === -10 || result === 0 || result === 10 ) {
-      $('.results').text("Not Quite There");
+
+    if ( finalScore >= 70 ) {
+      $('.results').text("You Are Master Level");
     }
-    if ( result === -20 ) {
-      $('.results').text("Aren't Even Trying");
+    else if ( finalScore >= 40 ) {
+      $('.results').text("You Made Some Good Effort");
+    }
+    else if ( finalScore >= 10 ) {
+      $('.results').text("You Made Some Baby Steps");
+    }
+    else if ( finalScore >= -30 ) {
+      $('.results').text("You Should Take Some Action");
+    }
+    else if ( finalScore >= -60 ) {
+      $('.results').text("You Ain't Even Trying");
+    }
+    else if ( finalScore >= -90 ) {
+      $('.results').text("Are 100% Failing");
     }
   }
 
-//Hide All The Tips
+//Hide All The Tips Initially
+  
   $('.tips-wrapper').children().hide();
 
 //Show Relevant Tips On Results Page
   $(document).on('click', '.answer-wrapper', function() {
-    if (  $(this).attr('data-score') <= 0  ) {
+    if ( $(this).attr('data-score' ) <= 0  ) {
+      tipsShown["Tip" + (currentAnswerIndex-1)] = (currentAnswerIndex-2); //just for checking
       $($('.tips-wrapper').children()[currentAnswerIndex-2]).show();
     }
   })
 
-//Update Progress Bar
+//Progress Bar
   var progressVal = 1;
   var progressWidth = 11.5;
-
 
   $(document).on('click', '.answer-wrapper', function() {
     progressVal ++;
@@ -89,13 +110,21 @@ $(document).ready(function() {
     $($('.progress-bar')[currentAnswerIndex-1]).text(currentAnswerIndex+"/9");
   })
 
-//On Back-Arrow Click, Hide/Show The Previous Set Of Questions/Answers
+//On Back-Arrow Click, Show Previous Q&A, Undo Score & Tips, Reverse Progress Bar
   $(document).on('click','.back-arrow', function() {
     currentAnswerIndex -= 1;
     currentQuestionIndex -= 1;
 
     showNextAnswer();
     showNextQuestion();
+
+    //Undo the Last Score
+    delete result["Q"+(currentAnswerIndex)]
+
+    //Undo the Last Tip (if it was shown)
+    if (  $($('.tips')[currentAnswerIndex]).attr("style", "display: block;") ) {
+      $($('.tips')[currentAnswerIndex]).attr("style", "display: none;")
+    }
 
     //Reverse Progress Bar
     progressVal -= 1;
@@ -107,9 +136,7 @@ $(document).ready(function() {
     $($('.progress-bar')[currentAnswerIndex-1]).text(currentAnswerIndex+"/9");
   })
 
-
-
-
 })
 
-//fix progress bar so when the back arrow is clicked the var values go down and run function again.
+
+  //progress bar generic even on page one
