@@ -56,7 +56,7 @@ $(document).ready(function() {
   $('.start-quiz').click(function() {
     var name = $('.input-name').val();
     $('.username').text(name);
-  })
+  });
 
 //On Answers Click, Store Results Into Results Hash
   $(document).on('click', '.answer-wrapper', function() {
@@ -68,7 +68,7 @@ $(document).ready(function() {
       tipsShown["Tip" + (currentAnswerIndex-1)] = (currentAnswerIndex-2); //just for checking
       $($('.tips-wrapper').children()[currentAnswerIndex-2]).show();
     }
-  })
+  });
 
 //Run calcScore Function When Last Answers Are Clicked
   $(document).on('click', '.last', function() {
@@ -126,6 +126,6 @@ $(document).ready(function() {
     $('.progress-bar').attr("aria-valuenow", progressVal);
     $('.progress-bar').attr("style", styleValue);
     $($('.progress-bar')[currentAnswerIndex-1]).text(currentAnswerIndex+"/9");
-  })
-
+  });
+  
 })
