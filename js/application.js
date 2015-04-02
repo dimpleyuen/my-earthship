@@ -37,6 +37,7 @@ $(document).ready(function() {
     showNextQuestion();
   })
 
+
 //On Button Click, store the input field somewhere and put it in the span
   $('.start-quiz').click(function() {
     var name = $('.input-name').val();
@@ -78,6 +79,7 @@ $(document).ready(function() {
   var progressVal = 1;
   var progressWidth = 11.5;
 
+
   $(document).on('click', '.answer-wrapper', function() {
     progressVal ++;
     progressWidth += 11.5;
@@ -88,9 +90,27 @@ $(document).ready(function() {
     $($('.progress-bar')[currentAnswerIndex-1]).text(currentAnswerIndex+"/9");
   })
 
+//On Back-Arrow Click, Hide/Show The Previous Set Of Questions/Answers
+  $(document).on('click','.back-arrow', function() {
+    currentAnswerIndex -= 1;
+    currentQuestionIndex -= 1;
+
+    showNextAnswer();
+    showNextQuestion();
+
+    //Reverse Progress Bar
+    progressVal -= 1;
+    progressWidth -= 11.5;
+    var styleValue = "width: " + progressWidth + "%;";
+
+    $('.progress-bar').attr("aria-valuenow", progressVal);
+    $('.progress-bar').attr("style", styleValue);
+    $($('.progress-bar')[currentAnswerIndex-1]).text(currentAnswerIndex+"/9");
+  })
 
 
 
 
 })
 
+//fix progress bar so when the back arrow is clicked the var values go down and run function again.
